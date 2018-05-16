@@ -593,8 +593,8 @@ input[type=submit] {
   left: 0;
   width: 100%;
   height: 100%;
-  /*background-image: url('../images/backgrounds/bg3.png');*/
-  opacity: 0.07;
+  /*background-image: url('../assets/images/backgrounds/bg3.png');*/
+  opacity: 0.1;
   z-index: -1;
   content: '';
 }
@@ -647,6 +647,7 @@ input[type=submit] {
 }
 .bottom-line {
   position: relative;
+  color: #f4cd03;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -659,6 +660,11 @@ input[type=submit] {
   margin-left: -15px;
   background-color: #FFF;
   content: '';
+}
+.personal-info {
+  position: relative;
+  font-size: 20px;
+  color: #FFFFFF;
 }
 .btn-store {
   margin: 10px 0;
@@ -1861,9 +1867,9 @@ input[type=submit] {
   left: 0;
   width: 100%;
   height: 100%;
-  /*background-image: url('../images/backgrounds/bg3.png');*/
+  background-image: url('../assets/images/backgrounds/bg3.png');
   background-position: 37px 0;
-  opacity: 0.07;
+  opacity: 0.1;
   z-index: -1;
   content: '';
 }
@@ -2498,7 +2504,7 @@ input[type=submit] {
   width: 212px;
   height: 24px;
   margin: 60px auto;
-  /*background: url('../images/section_delimiter.png') center center no-repeat;*/
+  background: url('../assets/images/section_delimiter.png') center center no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
