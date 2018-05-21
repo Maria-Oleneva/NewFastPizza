@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Client Personal Area Page</title>
+    <title>Delivery Page</title>
 
   <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700,400italic,700italic%7CPlayfair+Display:400,700' rel='stylesheet' type='text/css'>
@@ -46,10 +46,10 @@
                 <li>
                   <a href="index_sign_client.html">Home</a>
                 </li>
-                <li class="active">
+                <li>
                   <a href="personal_area.html">Personal Area</a>
                 </li>
-                <li>
+                <li class="active">
                   <a href="delivery.html">Delivery</a>
                 </li>
                 <li>
@@ -66,62 +66,47 @@
 
   <section>
     <div class="container">
-      <h1 class="bottom-line">Personal Information</h1>
-      <div class="personal-info" class="row">
-        <div class="margin-40"></div>
-          <div class="col-md-6" class="text-left">
-            <div class="text-left">
-              <p>First Name</p>
-              <p>Second Name</p>
-              <p>Phone Number</p>
+      <h1 class="bottom-line">Delivery</h1>
+      <h3 class="text-center text-uppercase delivery-info">Enter the address where you want the order delivered</h3>
+      <form class="text-center">
+        <div class="row">
+          <div class="col-sm-6">
+            <input type="text" name="email" placeholder="Street Address">
+          </div>
+          <div class="col-sm-6">
+            <input type="text" name="room" placeholder="House Number">
+          </div>
+        </div>
+        <h3 class="text-center text-uppercase delivery-info">Enter the time when you want the order delivered</h3>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-xs-4">
+                <div class="margin-20"></div>
+              </div>
+              <div class="col-xs-2">
+                <input type="text" name="state" placeholder="HH">
+              </div>
+              <div class="col-xs-2">
+                <input type="text" name="zip" placeholder="MM">
+              </div>
+              <div class="col-xs-4">
+                <div class="margin-20"></div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="text-right">
-              <p><em>Ivan</em></p>
-              <p><em>Ivanov</em></p>
-              <p><em>111-111</em></p>
-            </div>
-          </div>
         </div>
-      </div><!-- .row -->
+      </form>
+      <div class="section-delimiter"></div>
+      <form class="text-center">
+        <h3 class="text-uppercase delivery-info">Please, check your order</h3>
+        <p>Show shopping cart from database</p>
+        <div class="margin-30"></div>
+        <a class="button-yellow button-long with-right-arrow form-submit-trigger">MAKE YOUR ORDER</a>
+      </form>
+      <div class="margin-20"></div>
 
-    <div class="section-delimiter"></div>
-
-    <div class="container">
-      <h1 class="bottom-line">Active Order</h1>
-      <div class="personal-info" class="row">
-        <div class="margin-40"></div>
-        <div class="col-md-6">
-          <div class="text-left">
-            <p>Category 1</p>
-            <p>Category 2</p>
-            <p>Category 3</p>
-            <p>Order Status</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="text-right">
-            <p><em>Data 1</em></p>
-            <p><em>Data 1</em></p>
-            <p><em>Data 1</em></p>
-            <p><em>Status</em></p>
-          </div>
-        </div>
-      </div>
-    </div><!-- .row -->
-
-    <div class="section-delimiter"></div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="text-center">
-          <a class="button-yellow button-long with-right-arrow form-submit-trigger">See order history</a>
-        </div>
-      </div>
-    </div>
-
-    </div>
+    </div><!-- .container -->
   </section>
 
   <footer class="page-footer">
