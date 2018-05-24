@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Май 23 2018 г., 08:52
+-- Время создания: Май 24 2018 г., 20:21
 -- Версия сервера: 5.7.22-log
 -- Версия PHP: 7.1.17
 
@@ -77,6 +77,13 @@ CREATE TABLE `menu` (
   `price` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Дамп данных таблицы `menu`
+--
+
+INSERT INTO `menu` (`id`, `dish_name`, `description`, `price`) VALUES
+(1, 'Simple Pizza', 'Cheese, onion, olives', 100);
+
 -- --------------------------------------------------------
 
 --
@@ -87,11 +94,36 @@ CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `client_id` int(11) NOT NULL,
   `driver_id` int(11) NOT NULL,
-  `dishes_id` int(11) NOT NULL,
   `delivery_time` time NOT NULL,
   `delivery_date` date NOT NULL,
   `order_status` enum('Accepted','In progress','Delivered') NOT NULL DEFAULT 'Accepted'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `client_id`, `driver_id`, `delivery_time`, `delivery_date`, `order_status`) VALUES
+(1, 1, 1, '12:30:00', '2018-05-24', 'Accepted');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `order_id` int(11) NOT NULL,
+  `dish_id` int(11) NOT NULL,
+  `quantity` int(2) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `order_details`
+--
+
+INSERT INTO `order_details` (`order_id`, `dish_id`, `quantity`) VALUES
+(1, 1, 2);
 
 --
 -- Индексы сохранённых таблиц
@@ -123,8 +155,14 @@ ALTER TABLE `menu`
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
   ADD KEY `client_id` (`client_id`),
-  ADD KEY `dishes_id` (`dishes_id`),
   ADD KEY `driver_id` (`driver_id`) USING BTREE;
+
+--
+-- Индексы таблицы `order_details`
+--
+ALTER TABLE `order_details`
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `dish_id` (`dish_id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -146,13 +184,13 @@ ALTER TABLE `drivers`
 -- AUTO_INCREMENT для таблицы `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -164,6 +202,13 @@ ALTER TABLE `orders`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `order_details`
+--
+ALTER TABLE `order_details`
+  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`dish_id`) REFERENCES `menu` (`id`),
+  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
